@@ -11,6 +11,6 @@
     "Port": 7780,
     "Ref": "QueryPort",
     "Name": "Query Port",
-    "Description": "Steam query/browser port"
+    "Description": "Steam query port"
   }
 ]
