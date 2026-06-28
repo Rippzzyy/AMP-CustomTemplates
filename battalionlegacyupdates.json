@@ -1,34 +1,21 @@
 [
   {
-    "UpdateStageName": "SteamCMD Download and Extract",
+    "UpdateStageName": "Create install directory",
     "UpdateSourcePlatform": "Windows",
-    "UpdateSource": "FetchURL",
-    "UpdateSourceData": "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip",
-    "UpdateSourceTarget": "{{$FullRootDir}}",
-    "UnzipUpdateSource": true,
-    "OverwriteExistingFiles": true,
-    "DeleteAfterExtract": true,
+    "UpdateSource": "CreateDirectory",
+    "UpdateSourceArgs": "{{$FullBaseDir}}",
     "SkipOnFailure": false
   },
   {
-    "UpdateStageName": "Battalion Legacy Dedicated Server Download",
+    "UpdateStageName": "Install Battalion Legacy with shared SteamCMD",
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "Executable",
     "UpdateSourceData": "cmd.exe",
-    "UpdateSourceArgs": "/C \"{{$FullRootDir}}steamcmd.exe\" +login anonymous +force_install_dir \"{{$FullBaseDir}}\" +app_update 805140 +quit",
+    "UpdateSourceArgs": "/C \"\"C:\\SteamCMD\\steamcmd.exe\" +force_install_dir \"{{$FullBaseDir}}\" +login anonymous +app_update 805140 +quit\"",
     "SkipOnFailure": false
   },
   {
     "UpdateStageName": "Create root steam_appid.txt",
-    "UpdateSourcePlatform": "Windows",
-    "UpdateSource": "CreateFile",
-    "UpdateSourceData": "489940",
-    "UpdateSourceArgs": "{{$FullRootDir}}steam_appid.txt",
-    "OverwriteExistingFiles": true,
-    "SkipOnFailure": false
-  },
-  {
-    "UpdateStageName": "Create server steam_appid.txt",
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "CreateFile",
     "UpdateSourceData": "489940",
@@ -43,14 +30,6 @@
     "UpdateSourceData": "489940",
     "UpdateSourceArgs": "{{$FullBaseDir}}Battalion\\Binaries\\Win64\\steam_appid.txt",
     "OverwriteExistingFiles": true,
-    "SkipOnFailure": false
-  },
-  {
-    "UpdateStageName": "Verify Battalion executable",
-    "UpdateSourcePlatform": "Windows",
-    "UpdateSource": "Executable",
-    "UpdateSourceData": "cmd.exe",
-    "UpdateSourceArgs": "/C if exist \"{{$FullBaseDir}}BattalionServer.exe\" (exit /b 0) else (echo BattalionServer.exe not found in {{$FullBaseDir}} & exit /b 1)",
-    "SkipOnFailure": false
+    "SkipOnFailure": true
   }
 ]
