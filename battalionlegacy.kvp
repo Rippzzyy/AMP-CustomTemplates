@@ -6,31 +6,31 @@ Meta.Author=Rippz
 Meta.URL=https://store.steampowered.com/app/489940/BATTALION_Legacy/
 Meta.DisplayImageSource=steam:489940
 Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$QueryPort}
-Meta.ConfigManifest=battalionlegacyconfig.json
+Meta.ConfigManifest=
 Meta.MetaConfigManifest=
 Meta.ConfigRoot=battalionlegacy.kvp
 Meta.MinAMPVersion=2.8.0.0
 Meta.DockerRequired=False
 Meta.ContainerPolicy=NotSupported
 Meta.ConfigReleaseState=NotSpecified
-Meta.ConfigVersion=1
+Meta.ConfigVersion=2
 Meta.AppConfigId=27f70407-a7f2-41d4-9e57-1b6e9e5f1234
-Meta.ImportableExtensions=[]
+
 App.DisplayName=BATTALION: Legacy
 App.RootDir=./battalionlegacy/
-App.BaseDirectory=./battalionlegacy/805140/
-App.StoresSupported=
-App.ExecutableWin=805140\BattalionServer.exe
+App.BaseDirectory=./battalionlegacy/
+App.StoresSupported=Steam
+App.ExecutableWin=BattalionServer.exe
 App.ExecutableLinux=
-App.WorkingDir=805140
+App.WorkingDir=.
 App.LinuxCommandLineArgs=
-App.WindowsCommandLineArgs=
-App.CommandLineArgs={{$PlatformArgs}} -log -Port={{$GamePort}} -QueryPort={{$QueryPort}} -SteamServername="{{ServerName}}" -AdminPassword="{{$RemoteAdminPassword}}" -Queue="{{Queue}}" {{CustomArgs}}
+App.WindowsCommandLineArgs=-log -Port={{$GamePort}} -QueryPort={{$QueryPort}} -SteamServername="Battalion Legacy - Rippz" -AdminPassword="derfty" -Queue="Wartide"
+App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
 App.UseLinuxIOREDIR=False
 App.AppSettings={}
 App.EnvironmentVariables={"SteamAppId":"489940","SteamGameId":"489940"}
 App.CommandLineParameterFormat=-{0}={1}
-App.CommandLineParameterDelimiter= 
+App.CommandLineParameterDelimiter=
 App.ExitMethod=OS_CLOSE
 App.ExitTimeout=30
 App.ExitString=quit
@@ -60,6 +60,7 @@ App.RCONConnectRetrySeconds=5
 App.RCONHeartbeatMinutes=0
 App.RCONHeartbeatCommand=ping
 App.TelnetLoginFormat={0}
+App.UpdateSource=Multi
 App.UpdateSources=@IncludeJson[battalionlegacyupdates.json]
 App.PreStartStages=[]
 App.UserActions=[]
@@ -71,23 +72,25 @@ App.SteamForceLoginPrompt=False
 App.RapidStartup=False
 App.SmartExcludeExemptions=["*.cfg","*.conf","*.config","*.ini","*.json","*.xml","*.kvp","*.yml","*.yaml"]
 App.DumpFullChildProcessTree=False
-App.MonitorChildProcessName=^.*BattalionServer-Win64-Shipping\.exe.*$
+App.MonitorChildProcessName=BattalionServer-Win64-Shipping\.exe.*$
 App.MonitorDirectChildOnly=False
 App.SupportsUniversalSleep=False
 App.WakeupMode=Any
-App.ApplicationReadyMode=Immediate
+App.ApplicationReadyMode=RegexMatch
+
 Console.FilterMatchRegex=
 Console.FilterMatchReplacement=
 Console.ThrowawayMessageRegex=
-Console.AppReadyRegex=
-Console.UserJoinRegex=^.*LogNet: Login request: \?Name=(?<username>.+?)\?.*$
-Console.UserLeaveRegex=^.*LogOnline: STEAM: (?<username>.+?) has been removed\..*$
+Console.AppReadyRegex=(.*OnCreateSessionComplete \[bSuccess=1\].*|.*MatchState Entering Map -> Waiting To Start.*)$
+Console.UserJoinRegex=$
+Console.UserLeaveRegex=$
 Console.UserChatRegex=$
 Console.UpdateAvailableRegex=$
 Console.MetricsRegex=
 Console.SuppressLogAtStart=False
 Console.ActivateLogRegex=
 Console.UserActions={}
+
 Limits.SleepMode=False
 Limits.SleepOnStart=False
 Limits.SleepDelayMinutes=5
