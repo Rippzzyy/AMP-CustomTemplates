@@ -1,20 +1,11 @@
 [
   {
-    "UpdateStageName": "SteamCMD Download",
+    "UpdateStageName": "SteamCMD Download and Extract",
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "FetchURL",
     "UpdateSourceData": "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip",
     "UpdateSourceTarget": "{{$FullRootDir}}",
-    "UpdateSourceArgs": "steamcmd.zip",
-    "OverwriteExistingFiles": true,
-    "SkipOnFailure": false
-  },
-  {
-    "UpdateStageName": "SteamCMD Extract",
-    "UpdateSourcePlatform": "Windows",
-    "UpdateSource": "ExtractArchive",
-    "UpdateSourceData": "{{$FullRootDir}}steamcmd.zip",
-    "UpdateSourceTarget": "{{$FullRootDir}}",
+    "UnzipUpdateSource": true,
     "OverwriteExistingFiles": true,
     "DeleteAfterExtract": true,
     "SkipOnFailure": false
@@ -24,7 +15,7 @@
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "Executable",
     "UpdateSourceData": "cmd.exe",
-    "UpdateSourceArgs": "/C \"\"{{$FullRootDir}}steamcmd.exe\" +login anonymous +force_install_dir \"{{$FullBaseDir}}\" +app_update 805140 +quit\"",
+    "UpdateSourceArgs": "/C \"{{$FullRootDir}}steamcmd.exe\" +login anonymous +force_install_dir \"{{$FullBaseDir}}\" +app_update 805140 +quit",
     "SkipOnFailure": false
   },
   {
