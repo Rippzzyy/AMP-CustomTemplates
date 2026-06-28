@@ -10,8 +10,8 @@
     "UpdateStageName": "Install Battalion Legacy with shared SteamCMD",
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "Executable",
-    "UpdateSourceData": "cmd.exe",
-    "UpdateSourceArgs": "/C \"\"C:\\SteamCMD\\steamcmd.exe\" +force_install_dir \"{{$FullBaseDir}}\" +login anonymous +app_update 805140 +quit\"",
+    "UpdateSourceData": "C:\\SteamCMD\\steamcmd.exe",
+    "UpdateSourceArgs": "+login anonymous +force_install_dir \"{{$FullBaseDir}}\" +app_update 805140 +quit",
     "SkipOnFailure": false
   },
   {
