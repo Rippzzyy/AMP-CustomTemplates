@@ -1,10 +1,30 @@
 [
   {
-    "UpdateStageName": "Download Battalion Legacy Dedicated Server",
+    "UpdateStageName": "SteamCMD Download",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "FetchURL",
+    "UpdateSourceData": "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip",
+    "UpdateSourceTarget": "{{$FullRootDir}}",
+    "UpdateSourceArgs": "steamcmd.zip",
+    "OverwriteExistingFiles": true,
+    "SkipOnFailure": false
+  },
+  {
+    "UpdateStageName": "SteamCMD Extract",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "ExtractArchive",
+    "UpdateSourceData": "{{$FullRootDir}}steamcmd.zip",
+    "UpdateSourceTarget": "{{$FullRootDir}}",
+    "OverwriteExistingFiles": true,
+    "DeleteAfterExtract": true,
+    "SkipOnFailure": false
+  },
+  {
+    "UpdateStageName": "Battalion Legacy Dedicated Server Download",
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "Executable",
-    "UpdateSourceData": "powershell.exe",
-    "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; $root='{{$FullRootDir}}'; if ([string]::IsNullOrWhiteSpace($root)) { throw 'FullRootDir is empty' }; New-Item -ItemType Directory -Force -Path $root | Out-Null; $steamcmd=Join-Path $root 'steamcmd.exe'; if (!(Test-Path $steamcmd)) { $zip=Join-Path $root 'steamcmd.zip'; Invoke-WebRequest -UseBasicParsing -Uri 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip' -OutFile $zip; Expand-Archive -Path $zip -DestinationPath $root -Force; Remove-Item $zip -Force }; & $steamcmd +login anonymous +force_install_dir $root +app_update 805140 +quit; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; $exe1=Join-Path $root 'BattalionServer\\\\BattalionServer.exe'; $exe2=Join-Path $root 'BattalionServer.exe'; if (!(Test-Path $exe1) -and !(Test-Path $exe2)) { Write-Error ('BattalionServer.exe was not found under ' + $root); exit 1 }\"",
+    "UpdateSourceData": "cmd.exe",
+    "UpdateSourceArgs": "/C \"\"{{$FullRootDir}}steamcmd.exe\" +login anonymous +force_install_dir \"{{$FullBaseDir}}\" +app_update 805140 +quit\"",
     "SkipOnFailure": false
   },
   {
@@ -21,7 +41,7 @@
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "CreateFile",
     "UpdateSourceData": "489940",
-    "UpdateSourceArgs": "{{$FullRootDir}}BattalionServer\\steam_appid.txt",
+    "UpdateSourceArgs": "{{$FullBaseDir}}steam_appid.txt",
     "OverwriteExistingFiles": true,
     "SkipOnFailure": false
   },
@@ -30,8 +50,16 @@
     "UpdateSourcePlatform": "Windows",
     "UpdateSource": "CreateFile",
     "UpdateSourceData": "489940",
-    "UpdateSourceArgs": "{{$FullRootDir}}BattalionServer\\Battalion\\Binaries\\Win64\\steam_appid.txt",
+    "UpdateSourceArgs": "{{$FullBaseDir}}Battalion\\Binaries\\Win64\\steam_appid.txt",
     "OverwriteExistingFiles": true,
+    "SkipOnFailure": false
+  },
+  {
+    "UpdateStageName": "Verify Battalion executable",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "Executable",
+    "UpdateSourceData": "cmd.exe",
+    "UpdateSourceArgs": "/C if exist \"{{$FullBaseDir}}BattalionServer.exe\" (exit /b 0) else (echo BattalionServer.exe not found in {{$FullBaseDir}} & exit /b 1)",
     "SkipOnFailure": false
   }
 ]
