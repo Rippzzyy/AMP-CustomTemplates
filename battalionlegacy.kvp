@@ -13,16 +13,16 @@ Meta.MinAMPVersion=2.8.0.0
 Meta.DockerRequired=False
 Meta.ContainerPolicy=NotSupported
 Meta.ConfigReleaseState=NotSpecified
-Meta.ConfigVersion=2
+Meta.ConfigVersion=3
 Meta.AppConfigId=27f70407-a7f2-41d4-9e57-1b6e9e5f1234
 
 App.DisplayName=BATTALION: Legacy
 App.RootDir=./battalionlegacy/
-App.BaseDirectory=./battalionlegacy/
+App.BaseDirectory=./battalionlegacy/805140/
 App.StoresSupported=Steam
-App.ExecutableWin=BattalionServer.exe
+App.ExecutableWin=805140\BattalionServer.exe
 App.ExecutableLinux=
-App.WorkingDir=.
+App.WorkingDir=805140
 App.LinuxCommandLineArgs=
 App.WindowsCommandLineArgs=-log -Port={{$GamePort}} -QueryPort={{$QueryPort}} -SteamServername="Battalion Legacy - Rippz" -AdminPassword="derfty" -Queue="Wartide"
 App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
