@@ -1,0 +1,16 @@
+[
+  {
+    "Protocol": "UDP",
+    "Port": 7777,
+    "Ref": "GamePort",
+    "Name": "Game Port",
+    "Description": "Battalion gameplay port"
+  },
+  {
+    "Protocol": "UDP",
+    "Port": 7780,
+    "Ref": "QueryPort",
+    "Name": "Query Port",
+    "Description": "Steam query/browser port"
+  }
+]

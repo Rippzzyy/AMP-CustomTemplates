@@ -1,0 +1,67 @@
+[
+  {
+    "DisplayName": "Server Name",
+    "Category": "BATTALION: Legacy:stadia_controller",
+    "Subcategory": "Server:dns:1",
+    "Description": "Name shown in the Steam server browser.",
+    "Keywords": "server,name,steamservername",
+    "FieldName": "ServerName",
+    "InputType": "text",
+    "ParamFieldName": "ServerName",
+    "DefaultValue": "Battalion Legacy - Rippz",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Admin Password",
+    "Category": "BATTALION: Legacy:stadia_controller",
+    "Subcategory": "Server:dns:1",
+    "Description": "Password used for AdminLogin in game.",
+    "Keywords": "admin,password",
+    "FieldName": "$RemoteAdminPassword",
+    "InputType": "password",
+    "ParamFieldName": "AdminPassword",
+    "DefaultValue": "derfty",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Queue / Mode",
+    "Category": "BATTALION: Legacy:stadia_controller",
+    "Subcategory": "Server:dns:1",
+    "Description": "Battalion queue/mode argument. Your working manual server used Wartide.",
+    "Keywords": "queue,mode,wartide",
+    "FieldName": "Queue",
+    "InputType": "enum",
+    "ParamFieldName": "Queue",
+    "DefaultValue": "Wartide",
+    "EnumValues": {
+      "Wartide": "Wartide"
+    }
+  },
+  {
+    "DisplayName": "Maximum Users",
+    "Category": "BATTALION: Legacy:stadia_controller",
+    "Subcategory": "Players:users:2",
+    "Description": "AMP display/slot count. Actual team/slot behaviour can still be controlled through Battalion Game.ini if needed.",
+    "Keywords": "max,players,slots",
+    "FieldName": "$MaxUsers",
+    "InputType": "number",
+    "MinValue": "1",
+    "MaxValue": "32",
+    "ParamFieldName": "MaxUsers",
+    "DefaultValue": "12",
+    "Suffix": "players",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Custom Startup Args",
+    "Category": "BATTALION: Legacy:stadia_controller",
+    "Subcategory": "Advanced:wrench:9",
+    "Description": "Optional extra startup arguments appended to the launch command. Do not add -ServerPassword= here unless you actually want a private server.",
+    "Keywords": "custom,args,arguments,advanced",
+    "FieldName": "CustomArgs",
+    "InputType": "text",
+    "ParamFieldName": "CustomArgs",
+    "DefaultValue": "",
+    "EnumValues": {}
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "UpdateStageName": "Battalion Legacy Dedicated Server Download",
+    "UpdateSourcePlatform": "All",
+    "UpdateSource": "SteamCMD",
+    "UpdateSourceData": "805140",
+    "UpdateSourceArgs": "489940",
+    "UpdateSourceVersion": "public",
+    "ForceDownloadPlatform": "Windows",
+    "SkipOnFailure": false
+  }
+]
