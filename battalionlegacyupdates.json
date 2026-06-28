@@ -4,6 +4,34 @@
     "UpdateSourcePlatform": "All",
     "UpdateSource": "SteamCMD",
     "UpdateSourceData": "805140",
+    "UpdateSourceTarget": "{{$FullBaseDir}}",
+    "ForceDownloadPlatform": "Windows",
+    "SkipOnFailure": false
+  },
+  {
+    "UpdateStageName": "Create steam_appid.txt",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "CreateFile",
+    "UpdateSourceData": "489940",
+    "UpdateSourceArgs": "{{$FullBaseDir}}steam_appid.txt",
+    "OverwriteExistingFiles": true,
+    "SkipOnFailure": false
+  },
+  {
+    "UpdateStageName": "Create Win64 steam_appid.txt",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "CreateFile",
+    "UpdateSourceData": "489940",
+    "UpdateSourceArgs": "{{$FullBaseDir}}Battalion/Binaries/Win64/steam_appid.txt",
+    "OverwriteExistingFiles": true,
+    "SkipOnFailure": false
+  }
+][
+  {
+    "UpdateStageName": "Battalion Legacy Dedicated Server Download",
+    "UpdateSourcePlatform": "All",
+    "UpdateSource": "SteamCMD",
+    "UpdateSourceData": "805140",
     "UpdateSourceArgs": "489940",
     "UpdateSourceVersion": "public",
     "ForceDownloadPlatform": "Windows",
