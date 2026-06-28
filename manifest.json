@@ -1,1 +1,11 @@
-{ "id": "2f3b9843-1db9-4e5b-a1cc-4d4f4e38b8c4", "authors": ["Rippz"], "origin": "https://github.com/Rippzzyy/AMP-CustomTemplates.git", "url": "https://github.com/Rippzzyy/AMP-CustomTemplates", "imagefile": "", "prefix": "", "repotype": "AppTemplates" }
+{
+  "id": "2f3b9843-1db9-4e5b-a1cc-4d4f4e38b8c4",
+  "authors": [
+    "Rippz"
+  ],
+  "origin": "github",
+  "url": "https://github.com/Rippzzyy/AMP-CustomTemplates",
+  "imagefile": "",
+  "prefix": "",
+  "repotype": "AppTemplates"
+}
